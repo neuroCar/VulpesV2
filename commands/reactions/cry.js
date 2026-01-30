@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('Cry')
+        .setName('cry')
         .setDescription(`Cry reaction`),
     
     async execute(interaction) {
