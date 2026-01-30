@@ -1,15 +1,15 @@
 // Require the necessary discord.js classes
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, Events, GatewayIntentBits, MessageFlags, Partials } = require('discord.js');
+const { Client, Collection, Events, GatewayIntentBits, IntentsBitFields, Partials } = require('discord.js');
 
 // Load token
 const { token } = require('./config.json')
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.DirectMessages, // Required for DMs
-        GatewayIntentBits.MessageContent,], partials: [Partials.Channel, Partials.Message] });
+        IntentsBitField.Flags.DirectMessages, // Required for DMs
+        ], partials: [Partials.Channel, Partials.Message] });
 
 client.commands = new Collection();
 
