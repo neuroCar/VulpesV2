@@ -9,7 +9,7 @@ module.exports = {
         const response = await fetch(`https://api.some-random-api.com/animu/nom`)
         const data = await response.json()
         const embed = new EmbedBuilder()
-            .setImage(data.image)
+            .setImage(data.link)
             .setColor(0x89CFF0);
 
         await interaction.reply({ embeds: [embed] });
