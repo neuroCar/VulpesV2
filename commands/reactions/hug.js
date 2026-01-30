@@ -3,7 +3,8 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('hug')
-        .setDescription(`Hug reaction`),
+        .setDescription(`Hug reaction`)
+        .setDMPermission(true),
     
     async execute(interaction) {
         const response = await fetch(`https://api.some-random-api.com/animu/hug`)

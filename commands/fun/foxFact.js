@@ -3,7 +3,8 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('fox-fact')
-        .setDescription(`Sends an fact about foxes`),
+        .setDescription(`Sends an fact about foxes`)
+        .setDMPermission(true),
     
     async execute(interaction) {
         const response = await fetch(`https://api.some-random-api.com/facts/fox`)

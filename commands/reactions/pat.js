@@ -3,7 +3,8 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('pat')
-        .setDescription(`Pat reaction`),
+        .setDescription(`Pat reaction`)
+        .setDMPermission(true),
     
     async execute(interaction) {
         const response = await fetch(`https://api.some-random-api.com/animu/pat`)

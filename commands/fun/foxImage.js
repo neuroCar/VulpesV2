@@ -3,7 +3,8 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('fox-image')
-        .setDescription(`Sends an image of a fox`),
+        .setDescription(`Sends an image of a fox`)
+        .setDMPermission(true),
     
     async execute(interaction) {
         const response = await fetch(`https://randomfox.ca/floof/`)
