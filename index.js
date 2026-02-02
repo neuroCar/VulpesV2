@@ -2,6 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits, Partials } = require('discord.js');
+const { exec } = require("child_process");
 
 // Load token
 const { token } = require('./config.json')
@@ -46,4 +47,19 @@ for (const file of eventFiles) {
   }
 }
 
-client.login(token)
+// before logging in, deploy commands
+exec("node deploy-commands.js", (error, stdout, stderr) => {
+  // return on errors
+  if (error) {
+    console.error(`There was an error registering commands: ${error.message}`);
+    return;
+  }
+  if (stderr) {
+    console.error(`There was an error registering commands: ${stderr}`);
+    return;
+  }
+  console.log(stdout);
+
+  // login to bot
+  client.login(token);
+});
