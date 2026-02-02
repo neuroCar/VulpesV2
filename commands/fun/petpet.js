@@ -2,7 +2,7 @@ const pop = require(`popcat-wrapper`);
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName('joke').setDescription('Sends a joke (duh).'),
+    data: new SlashCommandBuilder().setName('petpet').setDescription('Pet.'),
     async execute(interaction) {
         let user = interaction.mentions.users.first() || interaction.author;
         const pfp = user.displayAvatarURL();
