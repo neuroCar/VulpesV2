@@ -6,14 +6,15 @@ module.exports = {
         .setName(`encodemsg`).setRequired(true).setDescription(`Message to decode`)
     ),
     async execute(interaction) {
-        const encodedMsg = interaction.options.getString(`encodemsg`);
+        const encoded = interaction.options.getString(`original`);
 
-        const decoded = pop.decode(originalText)
+        const res = await fetch(`https://api.popcat.xyz/v2/encode?text=${encodeURIComponent(encoded)}`)
+        const { message } = await res.json()
 
         const embed = new EmbedBuilder()
             .addFields(
-                { name: `Original text`, value: encodedMsg },
-                { name: `Translated`, value: decoded }
+                { name: `Encoded Message`, value: encoded },
+                { name: `Decoded Message`, value: message.text }
             )
             .setFooter({ text: "https://popcat.xyz/api", iconURL: "https://cdn.popcat.xyz/popcat.png" });
         await interaction.reply({ embeds: [embed] });
