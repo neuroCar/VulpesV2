@@ -6,9 +6,9 @@ module.exports = {
         .setName(`encodemsg`).setRequired(true).setDescription(`Message to decode`)
     ),
     async execute(interaction) {
-        const encoded = interaction.options.getString(`original`);
+        const encoded = interaction.options.getString(`encodemsg`);
 
-        const res = await fetch(`https://api.popcat.xyz/v2/encode?text=${encodeURIComponent(encoded)}`)
+        const res = await fetch(`https://api.popcat.xyz/v2/decode?binary=${encodeURIComponent(encoded)}`)
         const { message } = await res.json()
 
         const embed = new EmbedBuilder()
