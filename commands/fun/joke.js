@@ -8,7 +8,7 @@ module.exports = {
         
         const embed = new EmbedBuilder()
             .setDescription(joke)
-            .setFooter({ text: "Joke from https:://popcat.xyz/api", icon: "https://cdn.popcat.xyz/popcat.png" });
+            .setFooter({ text: "https://popcat.xyz/api", icon: "https://cdn.popcat.xyz/popcat.png" });
             await interaction.reply({ embeds: [embed] });
     },
 }

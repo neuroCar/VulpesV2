@@ -31,7 +31,7 @@ module.exports = {
                 { name: `pet-pet`, value: msg },
             )
             .setImage(`attachment://pet.gif`)
-            .setFooter({ text: "Image from https:://popcat.xyz/api", icon: "https://cdn.popcat.xyz/popcat.png" })
+            .setFooter({ text: "https://popcat.xyz/api", icon: "https://cdn.popcat.xyz/popcat.png" })
         await interaction.reply({ embeds: [embed], files: [attachment] });
     },
 }
